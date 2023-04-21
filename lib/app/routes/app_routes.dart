@@ -11,6 +11,7 @@ abstract class Routes {
   static const LOGIN = _Paths.LOGIN;
   static const BRANCH = _Paths.BRANCH;
   static const BRANCH_DATA = _Paths.BRANCH_DATA;
+  static const SEARCH_BY_SERIAL_NO = _Paths.SEARCH_BY_SERIAL_NO;
 }
 
 abstract class _Paths {
@@ -23,4 +24,5 @@ abstract class _Paths {
   static const LOGIN = '/login';
   static const BRANCH = '/branch';
   static const BRANCH_DATA = '/branch-data';
+  static const SEARCH_BY_SERIAL_NO = '/search-by-serial-no';
 }

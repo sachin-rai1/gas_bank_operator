@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 
-import '../../../data/constants.dart';
 import '../controllers/login_controller.dart';
 
 class LoginView extends GetView<LoginController> {
@@ -13,6 +11,8 @@ class LoginView extends GetView<LoginController> {
 
   @override
   Widget build(BuildContext context) {
+    // var h = MediaQuery.of(context).size.height;
+    var w = MediaQuery.of(context).size.height;
     try {
       return Scaffold(
         backgroundColor: Colors.black,
@@ -27,7 +27,7 @@ class LoginView extends GetView<LoginController> {
               children: [
                 Image(
                     image: const AssetImage("assets/images/cblogo.png"),
-                    height: w / 5),
+                    height: w * 0.15),
                 const SizedBox(
                   height: 80,
                 ),
@@ -84,7 +84,7 @@ class LoginView extends GetView<LoginController> {
                   height: 20,
                 ),
                 SizedBox(
-                    width: w / 2,
+                    width:200,
                     child: ElevatedButton(
                       onPressed: () {
                         controller.login();

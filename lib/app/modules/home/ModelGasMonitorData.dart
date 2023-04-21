@@ -68,7 +68,7 @@ class GasMonitor {
   String? operatorName;
   int? remainingStock;
   int? remainingStockDays;
-  int? serialNo;
+  String? serialNo;
   String? startingOn;
   int? statusId;
   String? statusName;

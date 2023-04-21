@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+
 import '../modules/branchData/bindings/branch_data_binding.dart';
 import '../modules/branchData/views/branch_data_view.dart';
 import '../modules/gas_manifold/bindings/gas_manifold_binding.dart';
@@ -13,6 +14,8 @@ import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
+import '../modules/searchBySerialNo/bindings/search_by_serial_no_binding.dart';
+import '../modules/searchBySerialNo/views/search_by_serial_no_view.dart';
 
 part 'app_routes.dart';
 
@@ -29,34 +32,38 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.GAS_MANIFOLD,
-      page: () =>  GasManifoldView(),
+      page: () => GasManifoldView(),
       binding: GasManifoldBinding(),
     ),
     GetPage(
       name: _Paths.GAS_MONITOR,
-      page: () =>  GasMonitorView(),
+      page: () => GasMonitorView(),
       binding: GasMonitorBinding(),
     ),
     GetPage(
       name: _Paths.GAS_VENDOR,
-      page: () =>  GasVendorView(),
+      page: () => GasVendorView(),
       binding: GasVendorBinding(),
     ),
     GetPage(
       name: _Paths.GASES,
-      page: () =>  GasesView(),
+      page: () => GasesView(),
       binding: GasesBinding(),
     ),
     GetPage(
       name: _Paths.LOGIN,
-      page: () =>  LoginView(),
+      page: () => LoginView(),
       binding: LoginBinding(),
     ),
-
     GetPage(
       name: _Paths.BRANCH_DATA,
-      page: () =>  BranchDataView(),
+      page: () => BranchDataView(),
       binding: BranchDataBinding(),
+    ),
+    GetPage(
+      name: _Paths.SEARCH_BY_SERIAL_NO,
+      page: () =>  SearchBySerialNoView(),
+      binding: SearchBySerialNoBinding(),
     ),
   ];
 }

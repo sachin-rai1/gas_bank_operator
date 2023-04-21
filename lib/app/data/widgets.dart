@@ -3,10 +3,13 @@ import 'package:gas_bank_operator/app/modules/gas_manifold/views/gas_manifold_vi
 import 'package:gas_bank_operator/app/modules/gas_monitor/views/gas_monitor_view.dart';
 import 'package:gas_bank_operator/app/modules/gas_vendor/views/gas_vendor_view.dart';
 import 'package:gas_bank_operator/app/modules/gases/views/gases_view.dart';
+import 'package:gas_bank_operator/app/modules/searchBySerialNo/bindings/search_by_serial_no_binding.dart';
+import 'package:gas_bank_operator/app/modules/searchBySerialNo/views/search_by_serial_no_view.dart';
 import 'package:get/get.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
-import 'constants.dart';
+import '../modules/login/views/login_view.dart';
+
 
 class TextFormWidget extends StatelessWidget {
   const TextFormWidget(
@@ -125,6 +128,9 @@ class MyCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var h = MediaQuery.of(context).size.height;
+    var w = MediaQuery.of(context).size.height;
+
     return InkWell(
       onTap: onTap,
       child: SizedBox(
@@ -259,6 +265,160 @@ class MyBottomNavigation extends StatelessWidget {
               ),
             ],
             borderRadius: BorderRadius.only(topLeft: Radius.circular(15), topRight: Radius.circular(15))),
+      ),
+    );
+  }
+}
+
+
+class MyDrawer extends StatefulWidget {
+  const MyDrawer({Key? key}) : super(key: key);
+
+  @override
+  State<MyDrawer> createState() => _MyDrawerState();
+}
+
+class _MyDrawerState extends State<MyDrawer> {
+  @override
+  Widget build(BuildContext context) {
+    var w = MediaQuery.of(context).size.height;
+    return Drawer(
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 30),
+            child: CircleAvatar(
+              radius: w * 0.1,
+              backgroundColor: Colors.black,
+              child: Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Image.asset(
+                  "assets/images/cblogo.png",
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding:
+            const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: InkWell(
+              onTap: () => Get.to(() => GasesView()),
+              child: Row(
+                children: const [
+                  Icon(
+                    Icons.gas_meter,
+                    size: 25,
+                    color: Colors.redAccent,
+                  ),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  Text(
+                    "Gases",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w600, fontSize: 16),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Padding(
+            padding:
+            const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: InkWell(
+              onTap: () => Get.to(() => GasManifoldView()),
+              child: Row(
+                children: const [
+                  Icon(
+                    Icons.gas_meter_sharp,
+                    color: Colors.teal,
+                    size: 25,
+                  ),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  Text(
+                    "Gas Manifold",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w600, fontSize: 16),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Padding(
+            padding:
+            const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: InkWell(
+              onTap: () => Get.to(() => GasVendorView()),
+              child: Row(
+                children: const [
+                  Icon(
+                    Icons.person,
+                    color: Colors.green,
+                    size: 25,
+                  ),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  Text(
+                    "Gas Vendor",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w600, fontSize: 16),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Padding(
+            padding:
+            const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: InkWell(
+              onTap: () => Get.to(() => SearchBySerialNoView()),
+              child: Row(
+                children: const [
+                  Icon(
+                    Icons.search,
+                    color: Colors.green,
+                    size: 25,
+                  ),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  Text(
+                    "Search by Serial No",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w600, fontSize: 16),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Padding(
+            padding:
+            const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: InkWell(
+              onTap: () => Get.offAll(()=>LoginView()),
+              child: Row(
+                children: const [
+                  Icon(
+                    Icons.logout,
+                    color: Colors.black87,
+                    size: 25,
+                  ),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  Text(
+                    "Logout",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w600, fontSize: 16),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
